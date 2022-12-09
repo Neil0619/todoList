@@ -6,10 +6,13 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "push": "npm run build && scp -r dist/* scp://root@124.221.100.142:7890//data/nginx/html/"
   },
   "dependencies": {
+    "@element-plus/icons-vue": "^2.0.10",
     "element-plus": "^2.2.26",
+    "unplugin-icons": "^0.14.14",
     "vue": "^3.2.41",
     "vue-router": "^4.1.6"
   },
@@ -24,6 +27,8 @@
     "prettier": "^2.8.1",
     "ts-node": "^10.9.1",
     "typescript": "^4.9.4",
+    "unplugin-auto-import": "^0.12.0",
+    "unplugin-vue-components": "^0.22.11",
     "vite": "^3.2.3"
   }
 }

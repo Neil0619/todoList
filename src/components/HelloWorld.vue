@@ -1,40 +1,58 @@
-<script setup>
-import { ref } from 'vue'
+<script lang="ts" setup>
+import {ref} from 'vue'
 
-defineProps({
-  msg: String
-})
+import {
+  Document,
+  Menu as IconMenu,
+  Location,
+  Setting,
+} from '@element-plus/icons-vue'
 
-const count = ref(0)
+const isCollapse = ref(true)
+const handleOpen = (key: string, keyPath: string[]) => {
+  console.log(key, keyPath)
+}
+const handleClose = (key: string, keyPath: string[]) => {
+  console.log(key, keyPath)
+}
+
 </script>
 
-<template>
-  <h1>{{ msg }}</h1>
+<template><el-row class="tac">
+  <el-col :span="12">
+    <h5 class="mb-2">Custom colors</h5>
+    <el-menu
+      class="el-menu-vertical-demo"
+      default-active="2"
+      :collapse="isCollapse"
+      @open="handleOpen"
+      @close="handleClose"
+    >
+      <el-menu-item index="1">
+          <el-icon><location /></el-icon>
+          <span>今天</span>
+      </el-menu-item>
+      <el-menu-item index="2">
+        <el-icon><icon-menu /></el-icon>
+        <span>最近七天</span>
+      </el-menu-item>
+      <el-menu-item index="3">
+        <el-icon><document /></el-icon>
+        <span>指派给我</span>
+      </el-menu-item>
+      <el-menu-item index="4">
+        <el-icon><setting /></el-icon>
+        <span>收集箱</span>
+      </el-menu-item>
+    </el-menu>
+    <el-divider />
+  </el-col>
+  <el-divider direction="vertical" />
+  <el-col>
 
-  <div class="card">
-    <button type="button" @click="count++">count is {{ count }}</button>
-    <p>
-      Edit
-      <code>components/HelloWorld.vue</code> to test HMR
-    </p>
-  </div>
-
-  <p>
-    Check out
-    <a href="https://vuejs.org/guide/quick-start.html#local" target="_blank"
-      >create-vue</a
-    >, the official Vue + Vite starter
-  </p>
-  <p>
-    Install
-    <a href="https://github.com/johnsoncodehk/volar" target="_blank">Volar</a>
-    in your IDE for a better DX
-  </p>
-  <p class="read-the-docs">Click on the Vite and Vue logos to learn more</p>
+  </el-col>
+</el-row>
 </template>
 
 <style scoped>
-.read-the-docs {
-  color: #888;
-}
 </style>

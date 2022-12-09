@@ -5,6 +5,6 @@ import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 
 createApp(App)
-  .use(ElementPlus)
+  .use(ElementPlus, { size: 'small', zIndex: 3000 })
   .use(router)
   .mount('#app')
